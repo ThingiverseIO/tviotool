@@ -100,6 +100,8 @@ func (c *client) onNewInput(m message) {
 
 	in.ListenStream().Listen(c.onListenResult(in.UUID()))
 
+	in.Run()
+
 	c.m.Lock()
 	defer c.m.Unlock()
 	c.in[in.UUID()] = in
@@ -231,6 +233,7 @@ func (c *client) onStartObserve(m message) {
 
 func (c *client) onPropertyChange(uuid uuid.UUID, property string) eventual2go.Subscriber {
 	return func(d eventual2go.Data) {
+		log.Infof("Client %s: Got update for property '%s'", c.UUID(), property)
 		msg := propertyChange{
 			UUID:     uuid,
 			Property: property,
