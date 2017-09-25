@@ -328,7 +328,7 @@ func createInput(desc string) (i core.InputCore, err error) {
 	if err != nil {
 		return
 	}
-	cfg := tvioconfig.DefaultLocalhost()
+	cfg := tvioconfig.Configure()
 	cfg.Debug = true
 	tracker, provider := core.DefaultBackends()
 	i, err = core.NewInputCore(d, cfg, tracker, provider...)

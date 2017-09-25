@@ -46,7 +46,6 @@ func Configure(flags ...*pflag.FlagSet) (cfg *Config) {
 	}
 
 	for _, f := range flags {
-		fmt.Println(f)
 		v.BindPFlags(f)
 	}
 
