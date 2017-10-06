@@ -10,6 +10,7 @@ func init() {
 	serverCmd.PersistentFlags().IntP("port", "p", web.DefaultPort, "Port to serve")
 	serverCmd.PersistentFlags().StringP("interface", "i", web.DefaultInterface, "Interface to serve")
 	serverCmd.PersistentFlags().StringP("directory", "d", web.DefaultDirectory, "Directory to serve")
+	serverCmd.PersistentFlags().Bool("nodir", false, "If set, not directory is served, only websockets")
 	RootCmd.AddCommand(serverCmd)
 }
 

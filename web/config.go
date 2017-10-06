@@ -12,6 +12,7 @@ type Config struct {
 	Interface string
 	Port      int
 	Directory string
+	NoDir bool
 }
 
 func (c Config) Address() string {

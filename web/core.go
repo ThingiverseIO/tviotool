@@ -32,7 +32,9 @@ func New(cfg *Config) (c *Core) {
 	c.React(clientArrived{}, c.onClientArrived)
 	c.React(clientLeft{}, c.onClientLeft)
 
-	c.initWebserver()
+	if !cfg.NoDir {
+		c.initWebserver()
+	}
 	c.initWebSocketListener()
 	return
 }
