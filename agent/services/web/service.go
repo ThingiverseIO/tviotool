@@ -29,12 +29,14 @@ func (c *Service) RegisterFlags(flags *pflag.FlagSet) {
 	flags.StringP("interface", "i", DefaultInterface, "Interface to serve")
 	flags.StringP("directory", "d", DefaultDirectory, "Directory to serve")
 	flags.Bool("nodir", false, "If set, no directory is served, only websockets")
+	flags.Bool("debug", false, "enable debug mode")
 }
 
 func (c *Service) Start(flags *pflag.FlagSet) (err error) {
 	cfg := Configure(flags)
-	log.Debug("Debug Mode Enabled")
+	log.SetDebug(cfg.Debug)
 	log.Init("Starting up")
+	log.Debug("Debug Mode Enabled")
 	c.Reactor = eventual2go.NewReactor()
 	c.cfg = cfg
 	c.clients = map[uuid.UUID]*client{}

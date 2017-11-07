@@ -9,10 +9,11 @@ import (
 )
 
 type Config struct {
-	Interface string
-	Port      int
+	Debug     bool
 	Directory string
-	NoDir bool
+	Interface string
+	NoDir     bool
+	Port      int
 }
 
 func (c Config) Address() string {
