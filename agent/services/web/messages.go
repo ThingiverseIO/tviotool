@@ -2,7 +2,7 @@ package web
 
 import (
 	tviomsg "github.com/ThingiverseIO/thingiverseio/message"
-	"github.com/ThingiverseIO/thingiverseio/uuid"
+	"github.com/ThingiverseIO/uuid"
 	"github.com/joernweissenborn/eventual2go"
 )
 
